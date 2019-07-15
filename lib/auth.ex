@@ -30,6 +30,13 @@ defmodule FirebaseAdminEx.Auth do
     do: do_request("getAccountInfo", %{key => value}, client_email)
 
   @doc """
+  Change an existing user's email
+  """
+  @spec change_user_email(String.t(), String.t(), String.t() | nil) :: tuple()
+  def change_user_email(uid, email, client_email \\ nil),
+    do: do_request("setAccountInfo", %{localId: uid, email: email}, client_email)
+
+  @doc """
   Delete an existing user by UID
   """
   @spec delete_user(String.t(), String.t() | nil) :: tuple()
