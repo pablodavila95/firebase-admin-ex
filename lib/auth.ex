@@ -82,11 +82,13 @@ defmodule FirebaseAdminEx.Auth do
          {_stage, {:ok, encoded_json}}         <- {"make_request",  do_request("accounts:sendOobCode", %{action_code_settings | requestType: "PASSWORD_RESET", returnOobLink: true }, client_email, project_id)},
          {_stage, {:ok, response}}             <- {"parse_response", Jason.decode(encoded_json)},
          {_stage, {:ok, link}}                 <- {"read_code_from_response", Map.fetch(response, "oobLink")} do
-      link
+      code = link
       |> URI.parse()
       |> Map.get(:query)
       |> URI.decode_query()
       |> Map.get("oobCode")
+
+      {:ok, code}
     end
   end
 
