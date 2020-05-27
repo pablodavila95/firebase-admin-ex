@@ -25,11 +25,11 @@ defmodule FirebaseAdminEx.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:httpoison, "~> 1.5"},
-      {:jason, "~> 1.1"},
-      {:mock, "~> 0.3.3", only: :test},
-      {:goth, "~> 1.1"},
-      {:ex_doc, "~> 0.21.2", only: :dev, runtime: false}
+      {:httpoison, "~> 1.6.2"},
+      {:jason, "~> 1.2.1"},
+      {:mock, "~> 0.3.4", only: :test},
+      {:goth, "~> 1.2.0"},
+      {:ex_doc, "~> 0.22.1", only: :dev, runtime: false}
     ]
   end
 
